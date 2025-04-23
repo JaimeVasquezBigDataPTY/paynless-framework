@@ -10,6 +10,9 @@ import { ProtectedRoute } from '../components/auth/ProtectedRoute';
 import { SubscriptionSuccessPage } from '../pages/SubscriptionSuccess';
 import { RootRoute } from '../components/routes/RootRoute';
 import { AiChatPage } from '../pages/AiChat';
+import ForecastPage from '../pages/forecast';
+import  AlertsPage from '../pages/alerts';
+
 
 export const routes: AppRoute[] = [
   {
@@ -57,7 +60,18 @@ export const routes: AppRoute[] = [
     allowedRoles: [UserRole.ADMIN],
   },
   {
+    path: '/alerts',
+    element: <AlertsPage />,
+    requireAuth: true,
+  },
+  
+    {
+    path: '/forecast',
+    element: <ForecastPage />,
+  },
+  {
     path: '*',
     element: <Navigate to="/" replace />,
-  },
+  }
+  
 ];
